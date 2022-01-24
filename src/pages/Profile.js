@@ -11,17 +11,13 @@ function Profile() {
 	const { authState } = useContext(AuthContext);
 
 	useEffect(() => {
-		axios
-			.get(`https://trilog-social-media.herokuapp.com/auth/basicInfo/${id}`)
-			.then((response) => {
-				setUsername(response.data.username);
-			});
+		axios.get(`http://localhost:1001/auth/basicInfo/${id}`).then((response) => {
+			setUsername(response.data.username);
+		});
 
-		axios
-			.get(`https://trilog-social-media.herokuapp.com/posts/byUserId/${id}`)
-			.then((response) => {
-				setListOfPosts(response.data);
-			});
+		axios.get(`http://localhost:1001/posts/byUserId/${id}`).then((response) => {
+			setListOfPosts(response.data);
+		});
 	}, []);
 
 	return (

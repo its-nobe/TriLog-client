@@ -16,7 +16,7 @@ function Home() {
 			history.push("/login");
 		} else {
 			axios
-				.get("https://trilog-social-media.herokuapp.com/posts", {
+				.get("http://localhost:1001/posts", {
 					headers: { accessToken: localStorage.getItem("accessToken") },
 				})
 				.then((response) => {
@@ -33,7 +33,7 @@ function Home() {
 	const likePost = (postId) => {
 		axios
 			.post(
-				"https://trilog-social-media.herokuapp.com/likes",
+				"http://localhost:1001/likes",
 				{ PostId: postId },
 				{ headers: { accessToken: localStorage.getItem("accessToken") } }
 			)

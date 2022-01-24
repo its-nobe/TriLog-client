@@ -27,7 +27,7 @@ function CreatePost() {
 
 	const onSubmit = (data) => {
 		axios
-			.post("https://trilog-social-media.herokuapp.com/posts", data, {
+			.post("http://localhost:1001/posts", data, {
 				headers: { accessToken: localStorage.getItem("accessToken") },
 			})
 			.then((response) => {

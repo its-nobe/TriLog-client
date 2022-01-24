@@ -12,21 +12,19 @@ function Login() {
 
 	const login = () => {
 		const data = { username: username, password: password };
-		axios
-			.post("https://trilog-social-media.herokuapp.com/auth/login", data)
-			.then((response) => {
-				if (response.data.error) {
-					alert(response.data.error);
-				} else {
-					localStorage.setItem("accessToken", response.data.token);
-					setAuthState({
-						username: response.data.username,
-						id: response.data.id,
-						status: true,
-					});
-					history.push("/");
-				}
-			});
+		axios.post("http://localhost:1001/auth/login", data).then((response) => {
+			if (response.data.error) {
+				alert(response.data.error);
+			} else {
+				localStorage.setItem("accessToken", response.data.token);
+				setAuthState({
+					username: response.data.username,
+					id: response.data.id,
+					status: true,
+				});
+				history.push("/");
+			}
+		});
 	};
 	return (
 		<div className="loginContainer">
