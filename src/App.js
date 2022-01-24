@@ -65,7 +65,7 @@ function App() {
 								<>
 									<Link to="/"> Home </Link>
 									<Link to="/createpost"> New Post </Link>
-									//<Link to="/topPost"> Top Post </Link>
+									{/* <Link to="/topPost"> Top Post </Link> */}
 								</>
 							)}
 							<h1 className="s_name">
