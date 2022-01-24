@@ -8,7 +8,7 @@ function ChangePassword() {
 	const changePassword = () => {
 		axios
 			.put(
-				"http://localhost:1001/auth/changepassword",
+				"https://trilog-social-media.herokuapp.com/auth/changepassword",
 				{
 					oldPassword: oldPassword,
 					newPassword: newPassword,
