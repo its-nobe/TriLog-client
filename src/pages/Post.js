@@ -16,12 +16,14 @@ function Post() {
 	let history = useHistory();
 
 	useEffect(() => {
-		axios.get(`http://localhost:1001/posts/byId/${id}`).then((response) => {
-			setPostObject(response.data);
-		});
+		axios
+			.get(`https://trilog-social-media.herokuapp.com/posts/byId/${id}`)
+			.then((response) => {
+				setPostObject(response.data);
+			});
 
 		axios
-			.get(`http://localhost:1001/comments/${id}`, {
+			.get(`https://trilog-social-media.herokuapp.com/comments/${id}`, {
 				headers: { accessToken: localStorage.getItem("accessToken") },
 			})
 			.then((response) => {
@@ -37,7 +39,7 @@ function Post() {
 	const likeAComment = (commentId) => {
 		axios
 			.post(
-				"http://localhost:1001/clikes",
+				"https://trilog-social-media.herokuapp.com/clikes",
 				{ CommentId: commentId },
 				{ headers: { accessToken: localStorage.getItem("accessToken") } }
 			)
@@ -72,7 +74,7 @@ function Post() {
 	const addComment = () => {
 		axios
 			.post(
-				"http://localhost:1001/comments",
+				"https://trilog-social-media.herokuapp.com/comments",
 				{
 					commentBody: newComment,
 					PostId: id,
@@ -99,7 +101,7 @@ function Post() {
 
 	const deleteComment = (id) => {
 		axios
-			.delete(`http://localhost:1001/comments/${id}`, {
+			.delete(`https://trilog-social-media.herokuapp.com/comments/${id}`, {
 				headers: { accessToken: localStorage.getItem("accessToken") },
 			})
 			.then(() => {
@@ -113,7 +115,7 @@ function Post() {
 
 	const deletePost = (id) => {
 		axios
-			.delete(`http://localhost:1001/posts/${id}`, {
+			.delete(`https://trilog-social-media.herokuapp.com/posts/${id}`, {
 				headers: { accessToken: localStorage.getItem("accessToken") },
 			})
 			.then(() => {
@@ -125,7 +127,7 @@ function Post() {
 		if (option === "title") {
 			let newTitle = prompt("Enter New Title:");
 			axios.put(
-				"http://localhost:1001/posts/title",
+				"https://trilog-social-media.herokuapp.com/posts/title",
 				{
 					newTitle: newTitle,
 					id: id,
@@ -139,7 +141,7 @@ function Post() {
 		} else {
 			let newPostText = prompt("Enter New Text:");
 			axios.put(
-				"http://localhost:1001/posts/postText",
+				"https://trilog-social-media.herokuapp.com/posts/postText",
 				{
 					newText: newPostText,
 					id: id,
